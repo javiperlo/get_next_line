@@ -6,7 +6,7 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:24:54 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/11 19:54:01 by javperez         ###   ########.fr       */
+/*   Updated: 2023/10/13 21:18:33 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ char	*get_next_line(int fd)
 {
 	char buf[BUFFER_SIZE];
 	ssize_t nr_bytes;
+	int		i;
 
+	i = 0;
 	nr_bytes = 0;
 	if (fd == -1)
 		return (NULL);
@@ -35,7 +37,11 @@ char	*get_next_line(int fd)
 			return (NULL);
 		else
 		{
-			printf("%s\n", buf);
+			while (buf[i] != '\n')
+			{
+				write(1, &buf[i], 1);
+				i++;
+			}
 		}
 	}
 	return (0);
