@@ -6,7 +6,7 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:24:54 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/13 21:20:35 by javperez         ###   ########.fr       */
+/*   Updated: 2023/10/13 21:56:45 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include "../libft/libft.h"
 
 #ifndef BUFFER_SIZE
 #define BUFFER_SIZE 10
 #endif
 
+int	is_new_line_in_word(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 char	*get_next_line(int fd)
 {
 	char buf[BUFFER_SIZE];
 	ssize_t nr_bytes;
-	int		i;
+	static int		i;
 
 	i = 0;
 	nr_bytes = 0;
@@ -32,20 +47,20 @@ char	*get_next_line(int fd)
 	else
 	{
 		nr_bytes = read(fd, buf, BUFFER_SIZE);
+		//printf("El valor de nr_bytes es: %ld\n", nr_bytes);
 		close(fd);
 		if (nr_bytes == 0)
 			return (NULL);
 		else
 		{
-			printf("%s", buf);
-			/*while (buf[i] != '\n')
-			{
-				write(1, &buf[i], 1);
-				i++;
-			}*/
+			//Analizar si hay un salto de linea en el buffer
+			if (is_new_line_in_word(buf))
+				printf("%s", buf);
+			else
+				printf("No hay un salto de linea en el buffer\n");
 		}
 	}
-	return (0);
+	return ("\nFIN");
 }
 
 int	main(void)
@@ -54,5 +69,5 @@ int	main(void)
 
 	fd = open("miArchivoCorto", O_RDONLY);
 	
-	get_next_line(fd);
+	printf("%s", get_next_line(fd));
 }
