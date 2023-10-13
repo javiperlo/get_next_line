@@ -6,7 +6,7 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:24:54 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/13 21:18:33 by javperez         ###   ########.fr       */
+/*   Updated: 2023/10/13 21:20:35 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <fcntl.h>
 
 #ifndef BUFFER_SIZE
-#define BUFFER_SIZE 0
+#define BUFFER_SIZE 10
 #endif
 
 char	*get_next_line(int fd)
@@ -37,11 +37,12 @@ char	*get_next_line(int fd)
 			return (NULL);
 		else
 		{
-			while (buf[i] != '\n')
+			printf("%s", buf);
+			/*while (buf[i] != '\n')
 			{
 				write(1, &buf[i], 1);
 				i++;
-			}
+			}*/
 		}
 	}
 	return (0);
