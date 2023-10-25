@@ -6,7 +6,7 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:54:01 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/25 13:29:52 by javperez         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:43:43 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-char	*get_line(char *str)
+char	*get_new_line(char *str)
 {
 	int		i;
 	char	*cut_str;
@@ -70,9 +70,9 @@ char	*new_line(char *left_str)
 	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str) - i + 1));
 	if (!str)
 		return (NULL);
-	i++; //Saltamos el \n
+	i++;
 	j = 0;
-	while (left_str[i]) //Y copiamos el resto de la string en str con la iteracion de j.
+	while (left_str[i])
 		str[j++] = left_str[i++];
 	str[j] = '\0';
 	free(left_str);
@@ -142,6 +142,7 @@ char	*read_line(int fd, char *str)
 	Entonces, cuando se vuelva a llamar a la función, "str", ya tendrá un valor
 	estático. Que se añadirá con un ft_strjoin() al valor de str.
 */
+
 char	*get_next_line(int fd)
 {
 	char		*line;
@@ -149,29 +150,32 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	str = read_line(fd, str); //Read line devuelve la linea en bruto.
+	str = read_line(fd, str);
 	if (!str)
 		return (NULL);
-	line = get_line(str);
+	line = get_new_line(str);
 	str = new_line(str);
 	return (line);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*line;
 	int		i;
 	int		fd1;
 
-	fd1 = open("txt_files/file", O_RDONLY); /* Abrimos el diccionario*/
+	fd1 = open("txt_files/file", O_RDONLY); //Abrimos el diccionario
 	i = 1;
 	while (i < 2) //Aquí ponemos las lienas que queramos leer
 	{
-		line = get_next_line(fd1); //Almacenamos en "line", la variable almacenada de get_next_line(fd);
+		line = get_next_line(fd1); //Almacenamos en "line", la 
+		//variable almacenada de get_next_line(fd);
 		printf("line [%02d]: %s", i, line); // Y la printeamos
-		free(line); //Liberamos la memoria de "line", para poder almacenar otra cadena distinta.
+		free(line); //Liberamos la memoria de "line", 
+		//para poder almacenar otra cadena distinta.
 		i++;
 	}
-	close(fd1); /*Una vez hayamos terminado de leer las lineas que queramos, cerramos el diccionario*/
+	close(fd1); //Una vez hayamos terminado de leer las
+	//lineas que queramos, cerramos el diccionario
 	return (0);
-}
+}*/
