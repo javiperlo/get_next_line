@@ -6,11 +6,12 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:54:01 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/25 13:43:43 by javperez         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:24:22 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
 /**
  * Esta función splitea la string devuelta de read_line() y solo
  * te saca hasta el salto de linea.
@@ -157,8 +158,8 @@ char	*get_next_line(int fd)
 	str = new_line(str);
 	return (line);
 }
-
-/*int	main(void)
+/*
+int	main(void)
 {
 	char	*line;
 	int		i;
@@ -166,7 +167,7 @@ char	*get_next_line(int fd)
 
 	fd1 = open("txt_files/file", O_RDONLY); //Abrimos el diccionario
 	i = 1;
-	while (i < 2) //Aquí ponemos las lienas que queramos leer
+	while (i < 5) //Aquí ponemos las lienas que queramos leer
 	{
 		line = get_next_line(fd1); //Almacenamos en "line", la 
 		//variable almacenada de get_next_line(fd);
