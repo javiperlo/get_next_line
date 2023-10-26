@@ -6,7 +6,7 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:54:01 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/26 12:24:22 by javperez         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:42:44 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ int	main(void)
 	int		i;
 	int		fd1;
 
-	fd1 = open("txt_files/file", O_RDONLY); //Abrimos el diccionario
+	fd1 = open("txt_files/file1", O_RDONLY); //Abrimos el diccionario
 	i = 1;
 	while (i < 5) //Aquí ponemos las lienas que queramos leer
 	{

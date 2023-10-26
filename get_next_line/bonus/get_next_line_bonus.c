@@ -6,7 +6,7 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:24:30 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/26 12:37:32 by javperez         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:42:31 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,8 @@ int	main(void)
 	int		i;
 
 	
-	fd = open("../txt_files/file", O_RDONLY);
-	fd_two = open("../txt_files/miArchivoCorto", O_RDONLY);
+	fd = open("../txt_files/file1", O_RDONLY);
+	fd_two = open("../txt_files/file2", O_RDONLY);
 	i = 1;
 	while (i < 2)
 	{
