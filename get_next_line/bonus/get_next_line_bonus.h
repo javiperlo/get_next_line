@@ -6,14 +6,14 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:28:12 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/26 12:30:54 by javperez         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:01:06 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10

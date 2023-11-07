@@ -6,16 +6,11 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:54:01 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/26 12:42:44 by javperez         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:07:21 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-/**
- * Esta función splitea la string devuelta de read_line() y solo
- * te saca hasta el salto de linea.
-*/
 
 #include <unistd.h>
 #include <stdio.h>
@@ -49,11 +44,6 @@ char	*get_new_line(char *str)
 	return (cut_str);
 }
 
-/**
- * Esta función está retornando el valor sobrante de la linea en bruto
- * después del salto de línea.
-*/
-
 char	*new_line(char *left_str)
 {
 	int		i;
@@ -80,8 +70,6 @@ char	*new_line(char *left_str)
 	return (str);
 }
 
-/*Esta función te pilla todo el texto almacenado en BUFFER_SIZE*/
-
 char	*read_line(int fd, char *str)
 {
 	char	*buff;
@@ -105,44 +93,6 @@ char	*read_line(int fd, char *str)
 	free(buff);
 	return (str);
 }
-/*		GET_NEXT_LINE
-		-------------
-	Esta función va a devolver la línea a leer.
-	Si se llama múltiples veces a la función,
-	la función "memorizará" la posición anterior
-	y leerá la siguiente.
-
-	Declaramos una variable "line" -> Que va a ser
-	la string que vamos a retornar.
-	
-	También declaramos una variable estática "str" 
-	que se encargará de conservar la posición en la que
-	se quedó anteriormente.
-
-	En primer lugar verificamos que el diccionario a leer "fd"
-	contenga algo. fd va a devolver un número mayor que 0 si 
-	contiene contenido. Si no contiene devolverá -1. Por lo tanto,
-	verificamos que si es < 1 y BUFFER_SIZE <= a 0, retorna NULL.
-
-	A continuación asignamos a la variable estática, el valor bruto
-	que se haya obtenido de la función read_line(fd).
-	Verificamos que "str" contenga algo y de lo contrario, devolvemos
-	NULL.
-
-	Ahora almacenamos en la variable "line", **SOLO** hasta el \n
-	para poder retornar el valor.
-
-	Por último tenemos que actualizar la variable estática "str".
-	Para ello utilizamos la función new_line(str), a la que le pasamos por
-	argumento en la primera iteración el valor BRUTO obtenido de la función
-	read_line. 
-
-	Esta función va a iterar sobre la cadena y va a retornar el valor que hay
-	después del salto de línea (\n).
-
-	Entonces, cuando se vuelva a llamar a la función, "str", ya tendrá un valor
-	estático. Que se añadirá con un ft_strjoin() al valor de str.
-*/
 
 char	*get_next_line(int fd)
 {

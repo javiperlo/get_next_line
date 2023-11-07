@@ -6,7 +6,7 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:24:30 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/26 12:42:31 by javperez         ###   ########.fr       */
+/*   Updated: 2023/11/07 17:05:04 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-
 int	main(void)
 {
 	int		fd;
@@ -117,7 +116,6 @@ int	main(void)
 	char	*line;
 	int		i;
 
-	
 	fd = open("../txt_files/file1", O_RDONLY);
 	fd_two = open("../txt_files/file2", O_RDONLY);
 	i = 1;
