@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ares <ares@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:54:01 by javperez          #+#    #+#             */
-/*   Updated: 2023/11/08 11:47:02 by javperez         ###   ########.fr       */
+/*   Updated: 2023/11/13 20:51:55 by ares             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ char	*read_line(int fd, char *str)
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
 		if (rd_bytes == -1)
 		{
-			free(buff);
+			free (str);
+			free (buff);
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
