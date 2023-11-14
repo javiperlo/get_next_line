@@ -6,7 +6,7 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:16:30 by javperez          #+#    #+#             */
-/*   Updated: 2023/10/26 12:29:56 by javperez         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:12:07 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define GET_NEXT_LINE_H
 
 # include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10

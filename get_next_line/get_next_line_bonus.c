@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ares <ares@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:24:30 by javperez          #+#    #+#             */
-/*   Updated: 2023/11/13 20:54:12 by ares             ###   ########.fr       */
+/*   Updated: 2023/11/14 21:56:30 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <limits.h>
 
 char	*get_new_line(char *str)
 {
@@ -98,9 +99,9 @@ char	*read_line(int fd, char *str)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*str[4096];
-
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 4096)
+	static char	*str[4096]; //Cambiar esto por OPEN_MAX en el campus
+ 
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 4096) //Aquí también
 		return (NULL);
 	str[fd] = read_line(fd, str[fd]);
 	if (!str[fd])
@@ -109,7 +110,7 @@ char	*get_next_line(int fd)
 	str[fd] = new_line(str[fd]);
 	return (line);
 }
-
+/*
 int	main(void)
 {
 	int		fd;
@@ -137,4 +138,4 @@ int	main(void)
 		i ++;
 	}
 	close(fd);
-}
+}*/
