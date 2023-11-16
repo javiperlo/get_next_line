@@ -6,24 +6,11 @@
 /*   By: javperez <javperez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 18:54:01 by javperez          #+#    #+#             */
-/*   Updated: 2023/11/14 21:56:21 by javperez         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:57:52 by javperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-/**
- * get_new_line - Extracts a line from the beginning of the provided string.
- *
- * This function takes a string as input and extracts the content from the beginning
- * until the first newline character '\n' or the end of the string is encountered.
- * It allocates memory for the extracted line and returns it as a new string.
- *
- * @param str - The string from which to extract the line
- * @return On success, the function returns the extracted line as a new string,
- *         including the newline character. If there's no newline character
- *         or in case of memory allocation failure, it returns NULL.
- */
 
 char	*get_new_line(char *str)
 {
@@ -53,17 +40,6 @@ char	*get_new_line(char *str)
 	return (cut_str);
 }
 
-/**
- * new_line - Extracts the remainder of a string after the first newline character.
- *
- * This function takes a string and extracts the content after the first newline character.
- * It allocates memory for the extracted content and returns it as a new string.
- *
- * @param left_str - The string from which to extract the content after the first newline
- * @return On success, the function returns the content after the first newline character as a new string.
- *         If there's no newline character or in case of memory allocation failure, it returns NULL.
- */
-
 char	*new_line(char *left_str)
 {
 	int		i;
@@ -89,18 +65,6 @@ char	*new_line(char *left_str)
 	free(left_str);
 	return (str);
 }
-/**
- * read_line - Reads from a file descriptor and appends the content to the given string.
- *
- * This function reads from the specified file descriptor in chunks of BUFFER_SIZE,
- * appending the read content to the provided string until a newline character is encountered
- * or the end of the file is reached.
- *
- * @param fd - The file descriptor to read from
- * @param str - The string to which the read content will be appended
- * @return On success, the function returns the updated string with appended content.
- *         If an error occurs or the end of the file is reached, it returns NULL.
- */
 
 char	*read_line(int fd, char *str)
 {
@@ -116,8 +80,8 @@ char	*read_line(int fd, char *str)
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
 		if (rd_bytes == -1)
 		{
-			free (str);
-			free (buff);
+			free(str);
+			free(buff);
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
@@ -126,20 +90,6 @@ char	*read_line(int fd, char *str)
 	free(buff);
 	return (str);
 }
-/**
- * get_next_line - Reads and returns the next line from a file descriptor.
- *
- * This function reads the content of the 
- * file descriptor passed as an argument,
- * returning a line each time it is called,
- * until the end of the file is reached.
- *
- * @param fd - The file descriptor to read from
- * @return On success, the function returns the 
- * 		   next line read from the file descriptor.
- *         When the end of the file is reached or in
- * 		   case of errors, it returns NULL.
- */
 
 char	*get_next_line(int fd)
 {
